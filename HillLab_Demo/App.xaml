@@ -131,5 +131,12 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+
+        <DataTemplate x:Key="RadGridViewTemplate">
+            <Grid>
+                <telerik:RadGridView AutoGenerateColumns="True" ItemsSource="{Binding DataList}" />
+            </Grid>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

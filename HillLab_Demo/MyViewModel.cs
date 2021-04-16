@@ -1,12 +1,26 @@
 ﻿using HillLab_Demo.Models;
+using Inventory.Data.Services;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows;
 using Telerik.Windows.Controls;
 
 namespace HillLab_Demo
 {
     public class MyViewModel : ViewModelBase
     {
+
         private ObservableCollection<NavigationItemModel> items;
+
+        private SQLiteDb sourceDb;
+
+        public MyViewModel()
+        {
+            var path = System.AppDomain.CurrentDomain.BaseDirectory;
+            string connectionString = @"Data source=" + path + @"\Database\Inventory.db";
+            sourceDb = new SQLiteDb(connectionString);
+        }
 
         public ObservableCollection<NavigationItemModel> Items
         {
@@ -51,8 +65,8 @@ namespace HillLab_Demo
                     IconGlyph = "&#xe10b;",
                      Children = new ObservableCollection<NavigationItemModel>()
                     {
-                        new LayoutControlItemModel() { Title = "RadTileView", DocumentationLink = "https://docs.telerik.com/devtools/wpf/controls/radtileview/getting-started/getting-started" },
-                        new LayoutControlItemModel() { Title = "RadTileList", DocumentationLink = "https://docs.telerik.com/devtools/wpf/controls/radtilelist/getting-started/getting-started" },
+                        new LayoutControlItemModel() { Title = "Analytical Tests",DataList=sourceDb.Orders },
+                        new LayoutControlItemModel() { Title = "Catagories", DataList=sourceDb.Categories },
                     }
 
                 },

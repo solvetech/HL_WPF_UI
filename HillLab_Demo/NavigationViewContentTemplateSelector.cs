@@ -13,6 +13,8 @@ namespace HillLab_Demo
         public DataTemplate RadTileListTemplate { get; set; }
         public DataTemplate RadTileViewTemplate { get; set; }
 
+        public DataTemplate RadGridViewTemplate { get; set; }
+
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             var navigationItemModel = item as NavigationItemModel;
@@ -26,7 +28,7 @@ namespace HillLab_Demo
                 case "RadTileList": return this.RadTileListTemplate;
                 case "RadTileView": return this.RadTileViewTemplate;
                 default:
-                    break;
+                    return this.RadGridViewTemplate;
             }
 
             return base.SelectTemplate(item, container);
