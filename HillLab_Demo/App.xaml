@@ -5,6 +5,22 @@
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <DataTemplate x:Key="groupHeaderTemplate">
+            <Border
+                HorizontalAlignment="Stretch"
+                Background="Gray"
+                BorderBrush="Gray">
+                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                    <TextBlock
+                        Name="cdfLabel"
+                        Margin="5"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="{Binding}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
         <DataTemplate x:Key="EditorsTemplate">
             <StackPanel
                 HorizontalAlignment="Center"
@@ -134,7 +150,77 @@
 
         <DataTemplate x:Key="RadGridViewTemplate">
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
                 <telerik:RadGridView AutoGenerateColumns="True" ItemsSource="{Binding DataList}" />
+                <telerik:RadTabControl x:Name="rootTab" Grid.Row="1">
+                    <telerik:RadTabControl.Items>
+                        <telerik:RadTabItem Header="Details">
+                            <StackPanel>
+                                <telerik:RadExpander Header="Analytical test catalouge details" HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                                    <telerik:RadExpander.Content>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20" />
+                                                <RowDefinition Height="20" />
+                                                <RowDefinition Height="20" />
+                                            </Grid.RowDefinitions>
+                                            <TextBox Grid.Row="0">My content</TextBox>
+                                            <TextBox Grid.Row="1">My content</TextBox>
+                                            <TextBox Grid.Row="2">My content</TextBox>
+                                        </Grid>
+                                    </telerik:RadExpander.Content>
+                                </telerik:RadExpander>
+                                <telerik:RadExpander Header="Analytical test price details" HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                                    <telerik:RadExpander.Content>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20" />
+                                                <RowDefinition Height="20" />
+                                                <RowDefinition Height="20" />
+                                            </Grid.RowDefinitions>
+                                            <TextBox Grid.Row="0">My content</TextBox>
+                                            <TextBox Grid.Row="1">My content</TextBox>
+                                            <TextBox Grid.Row="2">My content</TextBox>
+                                        </Grid>
+                                    </telerik:RadExpander.Content>
+                                </telerik:RadExpander>
+                                <telerik:RadExpander Header="Analytical test lab details" HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                                    <telerik:RadExpander.Content>
+                                        <ItemsControl ItemsSource="{Binding DataContext.LayoutControlItems, ElementName=rootTab, Mode=TwoWay}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border
+                                                        MinWidth="100"
+                                                        Margin="5"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        BorderBrush="Black"
+                                                        BorderThickness=".5"
+                                                        CornerRadius="5">
+                                                        <TextBlock Text="{Binding Name}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        </ItemsControl>
+                                    </telerik:RadExpander.Content>
+                                </telerik:RadExpander>
+
+                            </StackPanel>
+                        </telerik:RadTabItem>
+                        <telerik:RadTabItem Header="Sample Types" />
+                        <telerik:RadTabItem Header="Packages" />
+                        <telerik:RadTabItem Header="Item Groups" />
+                        <telerik:RadTabItem Header="Subtances" />
+                    </telerik:RadTabControl.Items>
+                </telerik:RadTabControl>
             </Grid>
         </DataTemplate>
 

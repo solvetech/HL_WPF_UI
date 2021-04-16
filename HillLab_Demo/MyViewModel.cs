@@ -35,6 +35,19 @@ namespace HillLab_Demo
             }
         }
 
+        private ObservableCollection<Customer> GenerateCustomers()
+        {
+            var customers = new ObservableCollection<Customer>();
+            for (int i = 1; i <= 100; i++)
+            {
+                var customer = new Customer() { Name = "Customer " + i, Age = 25 + i };
+                customers.Add(customer);
+            }
+
+            return customers;
+        }
+
+
         public ObservableCollection<NavigationItemModel> GenerateItems()
         {
             var source = new ObservableCollection<NavigationItemModel>()
@@ -63,10 +76,11 @@ namespace HillLab_Demo
                 {
                     Title = "Catalouge",
                     IconGlyph = "&#xe10b;",
+
                      Children = new ObservableCollection<NavigationItemModel>()
                     {
-                        new LayoutControlItemModel() { Title = "Analytical Tests",DataList=sourceDb.Orders },
-                        new LayoutControlItemModel() { Title = "Catagories", DataList=sourceDb.Categories },
+                        new LayoutControlItemModel() { Title = "Analytical Tests",DataList=sourceDb.Orders,LayoutControlItems=GenerateCustomers() },
+                        new LayoutControlItemModel() { Title = "Catagories", DataList=sourceDb.Categories,LayoutControlItems=GenerateCustomers() }
                     }
 
                 },
