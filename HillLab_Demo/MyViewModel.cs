@@ -27,23 +27,54 @@ namespace HillLab_Demo
             {
                 new NavigationItemModel()
                 {
-                    Title = "Editors",
+                    Title = "File",
                     IconGlyph = "&#xe10b;",
-                    Children = new ObservableCollection<NavigationItemModel>()
-                    {
-                        new EditorItemModel() { Title = "RadComboBox", DocumentationLink = "https://docs.telerik.com/devtools/wpf/controls/radcombobox/getting-started" },
-                        new EditorItemModel() { Title = "RadAutoCompleteBox", DocumentationLink = "https://docs.telerik.com/devtools/wpf/controls/radautocompletebox/getting-started" },
-                    }
                 },
                 new NavigationItemModel()
                 {
-                    Title = "Layout controls",
+                    Title = "DashBoards",
                     IconGlyph = "&#xe024;",
-                    Children = new ObservableCollection<NavigationItemModel>()
+                },
+                 new NavigationItemModel()
+                {
+                    Title = "Order",
+                    IconGlyph = "&#xe10b;",
+                },
+                new NavigationItemModel()
+                {
+                    Title = "Dispatch",
+                    IconGlyph = "&#xe024;",
+                },
+                new NavigationItemModel()
+                {
+                    Title = "Catalouge",
+                    IconGlyph = "&#xe10b;",
+                     Children = new ObservableCollection<NavigationItemModel>()
                     {
                         new LayoutControlItemModel() { Title = "RadTileView", DocumentationLink = "https://docs.telerik.com/devtools/wpf/controls/radtileview/getting-started/getting-started" },
                         new LayoutControlItemModel() { Title = "RadTileList", DocumentationLink = "https://docs.telerik.com/devtools/wpf/controls/radtilelist/getting-started/getting-started" },
                     }
+
+                },
+                new NavigationItemModel()
+                {
+                    Title = "Customer",
+                    IconGlyph = "&#xe024;",
+                },
+                new NavigationItemModel()
+                {
+                    Title = "System",
+                    IconGlyph = "&#xe024;",
+                },
+                new NavigationItemModel()
+                {
+                    Title = "User Administration",
+                    IconGlyph = "&#xe10b;",
+                },
+                new NavigationItemModel()
+                {
+                    Title = "Settings",
+                    IconGlyph = "&#xe024;",
                 }
             };
 

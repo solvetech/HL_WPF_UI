@@ -5,8 +5,7 @@
     xmlns:my="clr-namespace:HillLab_Demo"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     Title="MainWindow"
-    Width="525"
-    Height="350">
+    WindowState="Maximized">
     <Window.DataContext>
         <my:MyViewModel />
     </Window.DataContext>
@@ -44,6 +43,7 @@
         <telerik:RadNavigationView
             x:Name="radNavigationView"
             DisplayMemberPath="Title"
+            DisplayMode="Expanded"
             ItemsSource="{Binding Items}"
             SelectedIndex="0">
             <telerik:RadNavigationView.ItemContainerStyle>
