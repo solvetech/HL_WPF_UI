@@ -11,10 +11,14 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <telerik:RadExpander ClickMode="Press"
-                     ExpandDirection="Down" 
-                     Header="Analytical Test Catalogue Details">
-                <StackPanel>
+            <telerik:RadExpander ClickMode="Press"  HorizontalHeaderAlignment="Left"
+                     ExpandDirection="Down"  BorderThickness="1" telerik:StyleManager.Theme="VisualStudio2019">
+                <telerik:RadExpander.Header>
+                    <BulletDecorator  HorizontalAlignment="Left">
+                        <TextBlock FontSize="15" Margin="10,10,10,10" Text="Analytical Test Catalogue Details"   />
+                    </BulletDecorator>
+                </telerik:RadExpander.Header>
+                <StackPanel telerik:StyleManager.Theme="Vista" Margin="10,0,10,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button HorizontalAlignment="Right" Content="Edit" Margin="10,0,10,0" Width="60"></Button>
                         <Button HorizontalAlignment="Right" Content="Save" Margin="10,0,10,0" Width="60"></Button>
@@ -29,58 +33,90 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Right">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Name"></Label>
-                                <Label Content="Pesticide Suite"></Label>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <telerik:Label Grid.Row="0" telerik:StyleManager.Theme="VisualStudio2019" Content="Name" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="1" telerik:StyleManager.Theme="VisualStudio2019" Content="Code" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="2" telerik:StyleManager.Theme="VisualStudio2019" Content="Type" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="3" telerik:StyleManager.Theme="VisualStudio2019" Content="Permission" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="4" telerik:StyleManager.Theme="VisualStudio2019" Content="Commercial rollup" HorizontalAlignment="Right"></telerik:Label>
+                                </Grid>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Code"></Label>
-                                <Label Content="Mr2JF"></Label>
+                            <StackPanel Grid.Column="1" Margin="0,0,20,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBox Grid.Row="0" telerik:StyleManager.Theme="VisualStudio2019" Margin="4">Pesticide Suite</TextBox>
+                                    <TextBox Grid.Row="1" telerik:StyleManager.Theme="VisualStudio2019" Margin="4">Mr2JF</TextBox>
+                                    <TextBox Grid.Row="2" telerik:StyleManager.Theme="VisualStudio2019" Margin="4">Analytical Test</TextBox>
+                                    <TextBox Grid.Row="3" telerik:StyleManager.Theme="VisualStudio2019" Margin="4">Everyone</TextBox>
+                                    <TextBox Grid.Row="4" telerik:StyleManager.Theme="VisualStudio2019" Margin="4">Food</TextBox>
+                                </Grid>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Type"></Label>
-                                <StackPanel>
-                                    <Label Content="Analytical Test"></Label>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Permission"></Label>
-                                <Label Content="Pesticide Suite"></Label>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Commercial rollup"></Label>
-                                <Label Content="Pesticide Suite"></Label>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Only via Org"></Label>
-                                <CheckBox VerticalAlignment="Center"></CheckBox>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Code"></Label>
-                                <Label Content="Mr2JF"></Label>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Type"></Label>
-                                <StackPanel>
-                                    <Label Content="Analytical Test"></Label>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Permission"></Label>
-                                <Label Content="Pesticide Suite"></Label>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Commercial rollup"></Label>
-                                <Label Content="Pesticide Suite"></Label>
-                            </StackPanel>
-                        </StackPanel>
+                        </Grid>
+                        <Separator Grid.Column="1" Grid.Row="0"/>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <telerik:Label Grid.Row="0" telerik:StyleManager.Theme="VisualStudio2019" Content="Only via Org" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="1" telerik:StyleManager.Theme="VisualStudio2019" Content="Active" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="2" telerik:StyleManager.Theme="VisualStudio2019" Content="Orderable" HorizontalAlignment="Right"></telerik:Label>
+                                    <telerik:Label Grid.Row="3" telerik:StyleManager.Theme="VisualStudio2019" Content="Discountable" HorizontalAlignment="Right" ></telerik:Label>
+                                    <telerik:Label Grid.Row="4" telerik:StyleManager.Theme="VisualStudio2019" Content="Tags" HorizontalAlignment="Right" ></telerik:Label>
+                                </Grid>
 
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="0,0,20,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <CheckBox Grid.Row="0" telerik:StyleManager.Theme="VisualStudio2019" Margin="6"></CheckBox>
+                                    <CheckBox Grid.Row="1"  telerik:StyleManager.Theme="VisualStudio2019" Margin="6"></CheckBox>
+                                    <CheckBox Grid.Row="2" telerik:StyleManager.Theme="VisualStudio2019" Margin="6"></CheckBox>
+                                    <CheckBox Grid.Row="3" telerik:StyleManager.Theme="VisualStudio2019" Margin="6"></CheckBox>
+                                    <TextBox Grid.Row="4" Margin="4"></TextBox>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
-                    <StackPanel>
-                        <Label Content="Catelogue Description" ></Label>
+                    <StackPanel Margin="20,0,20,0">
+                        <telerik:Label Content="Catelogue Description:" ></telerik:Label>
                         <TextBox Background="Transparent" Name="TextBox1" TextWrapping="Wrap"  Height="80" Text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design">
                         </TextBox>
                     </StackPanel>
