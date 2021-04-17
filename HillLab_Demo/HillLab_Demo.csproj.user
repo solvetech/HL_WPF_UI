@@ -3,4 +3,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>D:\Source\SolveTech\lib\RCWPF\2021.1.325.45.Trial\</ReferencePath>
+  </PropertyGroup>
 </Project>
