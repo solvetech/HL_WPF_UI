@@ -40,18 +40,21 @@
                 BasedOn="{StaticResource BaseNavigationViewItemStyle}"
                 TargetType="telerik:RadNavigationViewItem">
                 <Setter Property="IconVisibility" Value="Collapsed" />
+                <Setter Property="FontSize" Value="13"/>
             </Style>
         </Grid.Resources>
         <telerik:RadNavigationView
             x:Name="radNavigationView"
             DisplayMemberPath="Title"
             DisplayMode="Expanded"
+            SubItemsIndentation="50"
             ItemsSource="{Binding Items}"
             SelectedIndex="0">
             <telerik:RadNavigationView.ItemContainerStyle>
                 <Style BasedOn="{StaticResource BaseNavigationViewItemStyle}" TargetType="telerik:RadNavigationViewItem">
                     <Setter Property="ItemsSource" Value="{Binding Children}" />
                     <Setter Property="ItemContainerStyle" Value="{StaticResource ChildNavigationViewItemStyle}" />
+                    <Setter Property="FontSize" Value="13"/>
                 </Style>
             </telerik:RadNavigationView.ItemContainerStyle>
 
