@@ -11,16 +11,15 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="ValueTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontFamily" Value="SegoeUI" />
+            <Setter Property="FontSize" Value="13" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="MinWidth" Value="150" />
         </Style>
         <Style x:Key="CaptionTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontWeight" Value="ExtraLight" />
+            <Setter Property="FontFamily" Value="SegoeUI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="MinWidth" Value="150" />
         </Style>
@@ -99,9 +98,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Type" />
-                                <StackPanel>
-                                    <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Analytical Test" />
-                                </StackPanel>
+                                <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Analytical Test" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Permission" />
@@ -109,7 +106,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Commercial rollup" />
-                                <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
+                                <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Food" />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel
@@ -124,22 +121,12 @@
                                 <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Code" />
-                                <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Mr2JF" />
+                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Discount" />
+                                <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Type" />
-                                <StackPanel>
-                                    <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Analytical Test" />
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Permission" />
-                                <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Commercial rollup" />
-                                <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
+                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Active" />
+                                <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
                             </StackPanel>
                         </StackPanel>
                     </Grid>
