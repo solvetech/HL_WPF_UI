@@ -98,11 +98,6 @@ namespace HillLab_Demo
                 {
                     Title = "User Administration",
                     IconGlyph = "&#xe10b;",
-                },
-                new NavigationItemModel()
-                {
-                    Title = "Settings",
-                    IconGlyph = "&#xe024;",
                 }
             };
 
