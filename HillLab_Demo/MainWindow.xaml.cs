@@ -22,9 +22,8 @@ namespace HillLab_Demo
     {
         public MainWindow()
         {
-            StyleManager.ApplicationTheme = new Windows8TouchTheme();
+            StyleManager.ApplicationTheme = new MaterialTheme();
             InitializeComponent();
-            
         }
     }
 }

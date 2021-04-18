@@ -2,6 +2,7 @@
     x:Class="HillLab_Demo.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hilllab_demo="clr-namespace:HillLab_Demo"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     StartupUri="MainWindow.xaml">
@@ -51,7 +52,6 @@
 
             <Style TargetType="telerik:GridViewCell">
                 <Setter Property="VerticalContentAlignment" Value="Center" />
-                <Setter Property="HorizontalContentAlignment" Value="Left" />
                 <Setter Property="Height" Value="50" />
                 <Setter Property="Margin" Value="10,0,10,0" />
                 <Setter Property="FontSize" Value="13" />
@@ -361,7 +361,8 @@
                             <telerik:GridViewDataColumn DataMemberBinding="{Binding ShipPhone}" Header="Ship Phone" />
                         </telerik:RadGridView.Columns>
                     </telerik:RadGridView>
-                    <telerik:RadTabControl
+                    <hilllab_demo:DetailsTemplate Grid.Row="2" telerik:StyleManager.Theme="Material" />
+                    <!--<telerik:RadTabControl
                         x:Name="rootTab"
                         Grid.Row="2"
                         telerik:StyleManager.Theme="Material">
@@ -437,7 +438,7 @@
                             <telerik:RadTabItem Header="Item Groups" />
                             <telerik:RadTabItem Header="Subtances" />
                         </telerik:RadTabControl.Items>
-                    </telerik:RadTabControl>
+                    </telerik:RadTabControl>-->
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>

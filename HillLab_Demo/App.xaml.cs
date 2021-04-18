@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
+using Telerik.Windows.Controls;
 
 namespace HillLab_Demo
 {
@@ -14,7 +15,8 @@ namespace HillLab_Demo
     {
         public App()
         {
-           this.InitializeComponent();
+            StyleManager.ApplicationTheme = new MaterialTheme();
+            this.InitializeComponent();
         }
     }
 }

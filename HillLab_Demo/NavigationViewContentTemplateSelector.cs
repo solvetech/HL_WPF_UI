@@ -19,7 +19,7 @@ namespace HillLab_Demo
         {
             var navigationItemModel = item as NavigationItemModel;
 
-            switch (navigationItemModel.Title)
+            switch (navigationItemModel?.Title)
             {
                 case "Editors": return this.EditorsTemplate;
                 case "Layout controls": return this.LayoutControlsTemplate;

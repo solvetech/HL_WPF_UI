@@ -14,18 +14,23 @@
         <Grid.Resources>
             <DataTemplate x:Key="PaneFooterTemplate">
                 <telerik:NavigationViewSubItemsHost>
-                    <telerik:RadNavigationViewItem Content="About" telerik:StyleManager.Theme="Material"
-                                               CommandParameter="{Binding ElementName=navigationView}" BorderThickness="1"
-                                               IconTemplate="{x:Null}">
+                    <telerik:RadNavigationViewItem
+                        telerik:StyleManager.Theme="Material"
+                        BorderThickness="1"
+                        CommandParameter="{Binding ElementName=navigationView}"
+                        Content="About"
+                        IconTemplate="{x:Null}">
                         <telerik:RadNavigationViewItem.Icon>
-                            <telerik:RadGlyph Glyph="&#xe401;" FontSize="20" />
+                            <telerik:RadGlyph FontSize="20" Glyph="&#xe401;" />
                         </telerik:RadNavigationViewItem.Icon>
                     </telerik:RadNavigationViewItem>
-                    <telerik:RadNavigationViewItem Content="Settings" telerik:StyleManager.Theme="Material"
-                                               CommandParameter="{Binding ElementName=navigationView}"
-                                               IconTemplate="{x:Null}">
+                    <telerik:RadNavigationViewItem
+                        telerik:StyleManager.Theme="Material"
+                        CommandParameter="{Binding ElementName=navigationView}"
+                        Content="Settings"
+                        IconTemplate="{x:Null}">
                         <telerik:RadNavigationViewItem.Icon>
-                            <telerik:RadGlyph Glyph="&#xe13a;" FontSize="20" />
+                            <telerik:RadGlyph FontSize="20" Glyph="&#xe13a;" />
                         </telerik:RadNavigationViewItem.Icon>
                     </telerik:RadNavigationViewItem>
                 </telerik:NavigationViewSubItemsHost>
@@ -58,21 +63,23 @@
                 BasedOn="{StaticResource BaseNavigationViewItemStyle}"
                 TargetType="telerik:RadNavigationViewItem">
                 <Setter Property="IconVisibility" Value="Collapsed" />
-                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontSize" Value="13" />
             </Style>
         </Grid.Resources>
         <telerik:RadNavigationView
             x:Name="radNavigationView"
+            telerik:StyleManager.Theme="Material"
             DisplayMemberPath="Title"
             DisplayMode="Expanded"
-            SubItemsIndentation="50"
             ItemsSource="{Binding Items}"
-            SelectedIndex="0" telerik:StyleManager.Theme="Material" PaneFooterTemplate="{StaticResource PaneFooterTemplate}">
+            PaneFooterTemplate="{StaticResource PaneFooterTemplate}"
+            SelectedIndex="0"
+            SubItemsIndentation="50">
             <telerik:RadNavigationView.ItemContainerStyle>
                 <Style BasedOn="{StaticResource BaseNavigationViewItemStyle}" TargetType="telerik:RadNavigationViewItem">
                     <Setter Property="ItemsSource" Value="{Binding Children}" />
                     <Setter Property="ItemContainerStyle" Value="{StaticResource ChildNavigationViewItemStyle}" />
-                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="FontSize" Value="13" />
                 </Style>
             </telerik:RadNavigationView.ItemContainerStyle>
 
