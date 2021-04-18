@@ -18,7 +18,7 @@ namespace HillLab_Demo
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             var navigationItemModel = item as NavigationItemModel;
-
+            if (navigationItemModel == null) return this.EditorsTemplate; ;
             switch (navigationItemModel.Title)
             {
                 case "Editors": return this.EditorsTemplate;

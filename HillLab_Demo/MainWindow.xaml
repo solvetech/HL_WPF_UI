@@ -12,6 +12,26 @@
     </Window.DataContext>
     <Grid>
         <Grid.Resources>
+
+            <DataTemplate x:Key="PaneFooterTemplate">
+                <telerik:NavigationViewSubItemsHost>
+                    <telerik:RadNavigationViewItem Content="About" telerik:StyleManager.Theme="Material"
+                                               CommandParameter="{Binding ElementName=navigationView}" BorderThickness="1"
+                                               IconTemplate="{x:Null}">
+                        <telerik:RadNavigationViewItem.Icon>
+                            <telerik:RadGlyph Glyph="&#xe401;" FontSize="20" />
+                        </telerik:RadNavigationViewItem.Icon>
+                    </telerik:RadNavigationViewItem>
+                    <telerik:RadNavigationViewItem Content="Settings" telerik:StyleManager.Theme="Material"
+                                               CommandParameter="{Binding ElementName=navigationView}"
+                                               IconTemplate="{x:Null}">
+                        <telerik:RadNavigationViewItem.Icon>
+                            <telerik:RadGlyph Glyph="&#xe13a;" FontSize="20" />
+                        </telerik:RadNavigationViewItem.Icon>
+                    </telerik:RadNavigationViewItem>
+                </telerik:NavigationViewSubItemsHost>
+            </DataTemplate>
+
             <telerik:StringToGlyphConverter x:Key="StringToGlyphConverter" />
 
             <my:NavigationViewContentTemplateSelector
@@ -49,7 +69,7 @@
             DisplayMode="Expanded"
             SubItemsIndentation="50"
             ItemsSource="{Binding Items}"
-            SelectedIndex="0">
+            SelectedIndex="0" telerik:StyleManager.Theme="Material" PaneFooterTemplate="{StaticResource PaneFooterTemplate}">
             <telerik:RadNavigationView.ItemContainerStyle>
                 <Style BasedOn="{StaticResource BaseNavigationViewItemStyle}" TargetType="telerik:RadNavigationViewItem">
                     <Setter Property="ItemsSource" Value="{Binding Children}" />
@@ -61,6 +81,7 @@
             <telerik:RadNavigationView.Content>
                 <ContentControl Content="{Binding SelectedItem, ElementName=radNavigationView}" ContentTemplateSelector="{StaticResource NavigationViewContentTemplateSelector}" />
             </telerik:RadNavigationView.Content>
+           
         </telerik:RadNavigationView>
     </Grid>
 </Window>
