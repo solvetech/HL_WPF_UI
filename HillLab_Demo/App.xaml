@@ -17,36 +17,38 @@
             <Style TargetType="TextBlock">
                 <Setter Property="FontFamily" Value="SegoeUI" />
             </Style>
-            <Style TargetType="TextBox" >
-                <Setter Property="Padding" Value="2"/>
-                <Setter Property="Foreground" Value="#000"/>
-                <Setter Property="MinHeight" Value="20"/>
-                <Setter Property="MinWidth" Value="200"/>
+            <Style TargetType="TextBox">
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="Foreground" Value="#000" />
+                <Setter Property="MinHeight" Value="20" />
+                <Setter Property="MinWidth" Value="200" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TextBox}">
-                            <Border x:Name="border"
-                                    CornerRadius="3"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="1"
-                                    Background="#fff">
+                            <Border
+                                x:Name="border"
+                                Background="#fff"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="3">
                                 <Grid>
-                                    <ScrollViewer x:Name="PART_ContentHost"
-                                    Focusable="false"
-                                    HorizontalScrollBarVisibility="Hidden"
-                                    VerticalScrollBarVisibility="Hidden"/>
+                                    <ScrollViewer
+                                        x:Name="PART_ContentHost"
+                                        Focusable="false"
+                                        HorizontalScrollBarVisibility="Hidden"
+                                        VerticalScrollBarVisibility="Hidden" />
                                 </Grid>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3843C4"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FF3843C4" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
-           
+
             <Style TargetType="telerik:GridViewCell">
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -359,11 +361,17 @@
                             <telerik:GridViewDataColumn DataMemberBinding="{Binding ShipPhone}" Header="Ship Phone" />
                         </telerik:RadGridView.Columns>
                     </telerik:RadGridView>
-                    <telerik:RadTabControl x:Name="rootTab" Grid.Row="2">
+                    <telerik:RadTabControl
+                        x:Name="rootTab"
+                        Grid.Row="2"
+                        telerik:StyleManager.Theme="Material">
                         <telerik:RadTabControl.Items>
                             <telerik:RadTabItem Header="Details">
                                 <StackPanel>
-                                    <telerik:RadExpander Header="Analytical test catalouge details" HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                                    <telerik:RadExpander
+                                        telerik:StyleManager.Theme="Material"
+                                        Header="Analytical test catalouge details"
+                                        HeaderTemplate="{StaticResource groupHeaderTemplate}">
                                         <telerik:RadExpander.Content>
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -377,7 +385,10 @@
                                             </Grid>
                                         </telerik:RadExpander.Content>
                                     </telerik:RadExpander>
-                                    <telerik:RadExpander Header="Analytical test price details" HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                                    <telerik:RadExpander
+                                        telerik:StyleManager.Theme="Material"
+                                        Header="Analytical test price details"
+                                        HeaderTemplate="{StaticResource groupHeaderTemplate}">
                                         <telerik:RadExpander.Content>
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -391,7 +402,10 @@
                                             </Grid>
                                         </telerik:RadExpander.Content>
                                     </telerik:RadExpander>
-                                    <telerik:RadExpander Header="Analytical test lab details" HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                                    <telerik:RadExpander
+                                        telerik:StyleManager.Theme="Material"
+                                        Header="Analytical test lab details"
+                                        HeaderTemplate="{StaticResource groupHeaderTemplate}">
                                         <telerik:RadExpander.Content>
                                             <ItemsControl ItemsSource="{Binding DataContext.LayoutControlItems, ElementName=rootTab, Mode=TwoWay}">
                                                 <ItemsControl.ItemTemplate>
@@ -416,7 +430,6 @@
                                             </ItemsControl>
                                         </telerik:RadExpander.Content>
                                     </telerik:RadExpander>
-
                                 </StackPanel>
                             </telerik:RadTabItem>
                             <telerik:RadTabItem Header="Sample Types" />
