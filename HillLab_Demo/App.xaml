@@ -17,6 +17,36 @@
             <Style TargetType="TextBlock">
                 <Setter Property="FontFamily" Value="SegoeUI" />
             </Style>
+            <Style TargetType="TextBox" >
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="Foreground" Value="#000"/>
+                <Setter Property="MinHeight" Value="20"/>
+                <Setter Property="MinWidth" Value="200"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border x:Name="border"
+                                    CornerRadius="3"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="1"
+                                    Background="#fff">
+                                <Grid>
+                                    <ScrollViewer x:Name="PART_ContentHost"
+                                    Focusable="false"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    VerticalScrollBarVisibility="Hidden"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3843C4"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+           
             <Style TargetType="telerik:GridViewCell">
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -62,6 +92,35 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="RoundedCornerButton" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource AppAccentBrush}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="2"
+                                CornerRadius="5">
+                                <ContentPresenter
+                                    Margin="3"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="Border" Property="BorderBrush" Value="LightGray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Setter.Value>
+                </Setter>
+            </Style>
             <Style TargetType="{x:Type telerik:GridViewGroupPanel}">
                 <Setter Property="MinHeight" Value="50" />
                 <Setter Property="Background" Value="{StaticResource AppAccentBrush}" />
@@ -71,6 +130,36 @@
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="Height" Value="50" />
                 <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type telerik:GridViewSearchPanel}">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <StackPanel
+                                    Margin="20,10,0,10"
+                                    HorizontalAlignment="Right"
+                                    Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="0,0,10,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Foreground="Black"
+                                        Text="Search" />
+                                    <TextBox
+                                        Width="200"
+                                        Margin="0,0,10,0"
+                                        VerticalAlignment="Center" />
+                                    <Button
+                                        Command="{Binding SearchCommand}"
+                                        Content="&#128269;"
+                                        FontSize="12"
+                                        FontWeight="Normal"
+                                        Style="{StaticResource RoundedCornerButton}" />
+                                </StackPanel>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style TargetType="telerik:GridViewHeaderRow">
                 <Setter Property="BorderBrush" Value="{StaticResource AppAccentBrush}" />
