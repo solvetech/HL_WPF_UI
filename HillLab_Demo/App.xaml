@@ -272,7 +272,7 @@
                 </Grid>
             </DataTemplate>
 
-            <DataTemplate x:Key="RadGridViewTemplate">
+            <DataTemplate x:Key="DockingContent">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
@@ -332,7 +332,10 @@
                         HorizontalAlignment="Stretch" />
                     <hilllab_demo:DetailsTemplate Grid.Row="3" Visibility="{Binding SelectedItem, ElementName=radGridView, Converter={StaticResource NullVisibilityConverter}}" />
                 </Grid>
+
             </DataTemplate>
+
+            <DataTemplate x:Key="RadGridViewTemplate" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -7,14 +7,19 @@ namespace HillLab_Demo.Models
     public class LayoutControlItemModel : ControlItemModel
     {
         private ObservableCollection<Customer> layoutControlItems;
+        private object dataList;
 
         public ObservableCollection<Customer> LayoutControlItems
         {
-            get; 
+            get;
             set;
         }
 
-        public object DataList { get; set; }
+        public object DataList
+        {
+            get => dataList;
+            set { dataList = value; OnPropertyChanged("DataList"); }
+        }
 
         public DbSet<DbVersion> DbVersion { get; set; }
 

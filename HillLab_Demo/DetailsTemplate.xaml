@@ -8,50 +8,75 @@
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     mc:Ignorable="d">
     <UserControl.Resources>
+        <Style BasedOn="{StaticResource GridViewHeaderRowStyle}" TargetType="telerik:GridViewHeaderRow">
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+
         <Style x:Key="CloseButton" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid Background="Transparent" Width="20" Height="20">
+                        <Grid
+                            Width="20"
+                            Height="20"
+                            Background="Transparent">
+                            <Ellipse
+                                x:Name="FocusEllipse"
+                                Fill="#FFF13535"
+                                Stretch="Fill"
+                                Visibility="Collapsed" />
+                            <Grid Width="14" Height="14">
+                                <Path
+                                    x:Name="path"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Data="M0,0 L6,6 M6, 0 L0,6"
+                                    Stroke="#FF898888"
+                                    StrokeThickness="1" />
+                            </Grid>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
                                     <VisualState x:Name="MouseOver">
                                         <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames
-													Storyboard.TargetProperty="(UIElement.Visibility)"
-													Storyboard.TargetName="FocusEllipse">
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="(UIElement.Visibility)">
                                                 <DiscreteObjectKeyFrame KeyTime="0">
                                                     <DiscreteObjectKeyFrame.Value>
                                                         <Visibility>Visible</Visibility>
                                                     </DiscreteObjectKeyFrame.Value>
                                                 </DiscreteObjectKeyFrame>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <ColorAnimation Duration="0" To="#FFFFAB40"
-													Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-													Storyboard.TargetName="FocusEllipse" />
-                                            <ColorAnimation Duration="0" To="White"
-                                                    Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
-													Storyboard.TargetName="path" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="FocusEllipse"
+                                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                To="#FFFFAB40"
+                                                Duration="0" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="path"
+                                                Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                To="White"
+                                                Duration="0" />
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames
-													Storyboard.TargetProperty="(UIElement.Visibility)"
-													Storyboard.TargetName="FocusEllipse">
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="(UIElement.Visibility)">
                                                 <DiscreteObjectKeyFrame KeyTime="0">
                                                     <DiscreteObjectKeyFrame.Value>
                                                         <Visibility>Visible</Visibility>
                                                     </DiscreteObjectKeyFrame.Value>
                                                 </DiscreteObjectKeyFrame>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <ColorAnimation Duration="0" To="Black"
-													Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-													Storyboard.TargetName="FocusEllipse" />
-                                            <ColorAnimation Duration="0" To="White"
-                                                    Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
-													Storyboard.TargetName="path" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="FocusEllipse"
+                                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                To="Black"
+                                                Duration="0" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="path"
+                                                Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                To="White"
+                                                Duration="0" />
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled" />
@@ -61,15 +86,6 @@
                                     <VisualState x:Name="Unfocused" />
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <Ellipse x:Name="FocusEllipse" Stretch="Fill" Fill="#FFF13535" Visibility="Collapsed" />
-                            <Grid Width="14" Height="14">
-                            <Path x:Name="path" 
-                                  Data="M0,0 L6,6 M6, 0 L0,6"
-                                  Stroke="#FF898888"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  StrokeThickness="1" />
-                            </Grid>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -88,40 +104,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type telerik:RadPanelBar}">
                         <Grid>
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="OrientationStates">
-                                    <VisualState x:Name="Vertical">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Duration="0"
-                                                                           Storyboard.TargetName="transformationRoot"
-                                                                           Storyboard.TargetProperty="(telerik:LayoutTransformControl.LayoutTransform)">
-                                                <DiscreteObjectKeyFrame KeyTime="0">
-                                                    <DiscreteObjectKeyFrame.Value>
-                                                        <RotateTransform Angle="0" />
-                                                    </DiscreteObjectKeyFrame.Value>
-                                                </DiscreteObjectKeyFrame>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Horizontal">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Duration="0"
-                                                                           Storyboard.TargetName="transformationRoot"
-                                                                           Storyboard.TargetProperty="(telerik:LayoutTransformControl.LayoutTransform)">
-                                                <DiscreteObjectKeyFrame KeyTime="0">
-                                                    <DiscreteObjectKeyFrame.Value>
-                                                        <RotateTransform Angle="-90" />
-                                                    </DiscreteObjectKeyFrame.Value>
-                                                </DiscreteObjectKeyFrame>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
                             <telerik:LayoutTransformControl x:Name="transformationRoot" IsTabStop="False">
-                                <Border Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                <Border
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
                                     <!--
                                         <ScrollViewer x:Name="ScrollViewer" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" HorizontalScrollBarVisibility="Auto" IsTabStop="False" Padding="{TemplateBinding Padding}" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                                         <telerik:StyleManager.Theme>
@@ -133,6 +120,38 @@
                                     <!--  </ScrollViewer>  -->
                                 </Border>
                             </telerik:LayoutTransformControl>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="OrientationStates">
+                                    <VisualState x:Name="Vertical">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames
+                                                Storyboard.TargetName="transformationRoot"
+                                                Storyboard.TargetProperty="(telerik:LayoutTransformControl.LayoutTransform)"
+                                                Duration="0">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <RotateTransform Angle="0" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Horizontal">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames
+                                                Storyboard.TargetName="transformationRoot"
+                                                Storyboard.TargetProperty="(telerik:LayoutTransformControl.LayoutTransform)"
+                                                Duration="0">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <RotateTransform Angle="-90" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -157,12 +176,14 @@
             <Setter Property="MinWidth" Value="150" />
         </Style>
         <DataTemplate x:Key="TabItemHeaderTemplate">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="{Binding}" />
-                <telerik:RadButton Click="RadButton_Click" VerticalAlignment="Stretch"
-                        Style="{StaticResource CloseButton}"
-                        Margin="15,0,0,0"
-                        ToolTipService.ToolTip="Remove item" />
+                <telerik:RadButton
+                    Margin="15,0,0,0"
+                    VerticalAlignment="Stretch"
+                    Click="RadButton_Click"
+                    Style="{StaticResource CloseButton}"
+                    ToolTipService.ToolTip="Remove item" />
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="groupHeaderTemplate">
@@ -187,77 +208,35 @@
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="emptyHeader">
-            <Grid Height="0">
-
-            </Grid>
+            <Grid Height="0" />
         </DataTemplate>
         <DataTemplate x:Key="dynamicTab">
-
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="{Binding ElementName=dynamicsampleTypeGridview, Path=SelectedItem, Converter={StaticResource HeightConverter}}" />
-                </Grid.ColumnDefinitions>
-                <telerik:RadGridView
-                        x:Name="dynamicsampleTypeGridview"
+                <telerik:RadPanelBar telerik:StyleManager.Theme="Material" Style="{DynamicResource RadPanelBarStyle}">
+                    <telerik:RadPanelBarItem
                         telerik:StyleManager.Theme="Material"
-                        AlternateRowStyle="{StaticResource AlternativeRowStyle}"
-                        AlternationCount="2"
-                        AutoGenerateColumns="False"
-                        CanUserFreezeColumns="False"
-                        CanUserReorderColumns="False"
-                        CanUserSearch="True"
-                        SelectionChanged="SampleTypeGridview_SelectionChanged"
-                        ColumnWidth="*"
-                        EnableRowVirtualization="True"
-                        GroupPanelBackground="{StaticResource AppAccentBrush}"
-                        ItemsSource="{Binding DataContext.Products, ElementName=rootTab}"
-                        RowIndicatorVisibility="Collapsed"
-                        ShowGroupPanel="False"
-                        ShowSearchPanel="True">
-                    <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" Header="Code" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SearchTerms}" Header="Substance Name" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Header="Description" />
-                        <telerik:GridViewSelectColumn Header="Active" />
-                    </telerik:RadGridView.Columns>
-                </telerik:RadGridView>
-                <GridSplitter
-                        Grid.Column="1"
-                        Width="5"
-                        VerticalAlignment="Stretch"
-                        ResizeBehavior="PreviousAndNext"
-                        ResizeDirection="Columns" />
-                <Grid Grid.Column="2">
-                    <telerik:RadExpander
-                            telerik:StyleManager.Theme="Material"
-                            ClickMode="Press"
-                            ExpandDirection="Down"
-                            Header="Test on sample type Details"
-                            HeaderTemplate="{StaticResource groupHeaderTemplate}"
-                            IsExpanded="True">
+                        Header="Test on sample type Details"
+                        HeaderTemplate="{StaticResource groupHeaderTemplate}">
                         <StackPanel>
                             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                                 <telerik:RadButton
-                                        Width="60"
-                                        Margin="10"
-                                        HorizontalAlignment="Right"
-                                        telerik:StyleManager.Theme="Material"
-                                        Content="Edit" />
+                                    Width="60"
+                                    Margin="10"
+                                    HorizontalAlignment="Right"
+                                    telerik:StyleManager.Theme="Material"
+                                    Content="Edit" />
                                 <telerik:RadButton
-                                        Width="60"
-                                        Margin="10"
-                                        HorizontalAlignment="Right"
-                                        telerik:StyleManager.Theme="Material"
-                                        Content="Save" />
+                                    Width="60"
+                                    Margin="10"
+                                    HorizontalAlignment="Right"
+                                    telerik:StyleManager.Theme="Material"
+                                    Content="Save" />
                                 <telerik:RadButton
-                                        Width="60"
-                                        Margin="10"
-                                        HorizontalAlignment="Right"
-                                        telerik:StyleManager.Theme="Material"
-                                        Content="Cancel" />
+                                    Width="60"
+                                    Margin="10"
+                                    HorizontalAlignment="Right"
+                                    telerik:StyleManager.Theme="Material"
+                                    Content="Cancel" />
                             </StackPanel>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -265,101 +244,98 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Margin="5"
-                                        Orientation="Vertical">
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="5"
+                                    Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Name" />
-                                        <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
+                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="In Catalouge" />
+                                        <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Code" />
+                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Signatory group" />
                                         <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Mr2JF" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Type" />
-                                        <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Analytical Test" />
+                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Mandatory Max Time" />
+                                        <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="6" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Permission" />
-                                        <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
+                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Preferred Max Time" />
+                                        <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="3" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Commercial rollup" />
+                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Workflow" />
                                         <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Food" />
                                     </StackPanel>
                                 </StackPanel>
-                                <StackPanel
-                                        Grid.Row="0"
-                                        Grid.Column="2"
-                                        Orientation="Vertical">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock
-                                                telerik:StyleManager.Theme="Material"
-                                                Style="{StaticResource CaptionTextBlockStyle}"
-                                                Text="Only via Org" />
-                                        <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Discount" />
-                                        <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Active" />
-                                        <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                            <StackPanel Margin="5">
-                                <TextBlock
-                                        telerik:StyleManager.Theme="Material"
-                                        Style="{StaticResource CaptionTextBlockStyle}"
-                                        Text="Catelogue Description :" />
-                                <TextBox
-                                        Height="80"
-                                        telerik:StyleManager.Theme="Material"
-                                        Background="Transparent"
-                                        Text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design"
-                                        TextWrapping="Wrap" />
-                            </StackPanel>
-                        </StackPanel>
-                    </telerik:RadExpander>
 
-                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </telerik:RadPanelBarItem>
+                    <telerik:RadPanelBarItem
+                        telerik:StyleManager.Theme="Material"
+                        Header="Required Lab Services"
+                        HeaderTemplate="{StaticResource groupHeaderTemplate}">
+                        <telerik:RadGridView
+                            x:Name="dynamicsampleTypeGridview"
+                            telerik:StyleManager.Theme="Material"
+                            AlternateRowStyle="{StaticResource AlternativeRowStyle}"
+                            AlternationCount="2"
+                            AutoGenerateColumns="False"
+                            CanUserFreezeColumns="False"
+                            CanUserReorderColumns="False"
+                            CanUserSearch="True"
+                            ColumnWidth="*"
+                            EnableRowVirtualization="True"
+                            GroupPanelBackground="{StaticResource AppAccentBrush}"
+                            ItemsSource="{Binding DataContext.Products, ElementName=rootTab}"
+                            RowIndicatorVisibility="Collapsed"
+                            SelectionChanged="SampleTypeGridview_SelectionChanged"
+                            ShowGroupPanel="False"
+                            ShowSearchPanel="True">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" Header="ID" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding SearchTerms}" Header="Substance Name" />
+                                <telerik:GridViewSelectColumn Header="Active" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Header="Permisson" />
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </telerik:RadPanelBarItem>
+                </telerik:RadPanelBar>
             </Grid>
         </DataTemplate>
-        
+
 
     </UserControl.Resources>
     <telerik:RadTabControl x:Name="rootTab" telerik:StyleManager.Theme="Material">
         <telerik:RadTabControl.Items>
             <telerik:RadTabItem Header="Details">
                 <Grid x:Name="ExpanderGrid">
-                    <telerik:RadPanelBar  Style="{DynamicResource RadPanelBarStyle}">
-                        <telerik:RadPanelBarItem
-                        Header="Analytical Test Catalogue Details">
+                    <telerik:RadPanelBar Style="{DynamicResource RadPanelBarStyle}">
+                        <telerik:RadPanelBarItem Header="Analytical Test Catalogue Details">
                             <ScrollViewer VerticalScrollBarVisibility="Auto">
                                 <StackPanel>
                                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                                         <telerik:RadButton
-                                    Width="60"
-                                    Margin="10"
-                                    HorizontalAlignment="Right"
-                                    telerik:StyleManager.Theme="Material"
-                                    Content="Edit" />
+                                            Width="60"
+                                            Margin="10"
+                                            HorizontalAlignment="Right"
+                                            telerik:StyleManager.Theme="Material"
+                                            Content="Edit" />
                                         <telerik:RadButton
-                                    Width="60"
-                                    Margin="10"
-                                    HorizontalAlignment="Right"
-                                    telerik:StyleManager.Theme="Material"
-                                    Content="Save" />
+                                            Width="60"
+                                            Margin="10"
+                                            HorizontalAlignment="Right"
+                                            telerik:StyleManager.Theme="Material"
+                                            Content="Save" />
                                         <telerik:RadButton
-                                    Width="60"
-                                    Margin="10"
-                                    HorizontalAlignment="Right"
-                                    telerik:StyleManager.Theme="Material"
-                                    Content="Cancel" />
+                                            Width="60"
+                                            Margin="10"
+                                            HorizontalAlignment="Right"
+                                            telerik:StyleManager.Theme="Material"
+                                            Content="Cancel" />
                                     </StackPanel>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -367,10 +343,10 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <StackPanel
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    Margin="5"
-                                    Orientation="Vertical">
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Margin="5"
+                                            Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Name" />
                                                 <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
@@ -393,14 +369,14 @@
                                             </StackPanel>
                                         </StackPanel>
                                         <StackPanel
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    Orientation="Vertical">
+                                            Grid.Row="0"
+                                            Grid.Column="2"
+                                            Orientation="Vertical">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock
-                                            telerik:StyleManager.Theme="Material"
-                                            Style="{StaticResource CaptionTextBlockStyle}"
-                                            Text="Only via Org" />
+                                                    telerik:StyleManager.Theme="Material"
+                                                    Style="{StaticResource CaptionTextBlockStyle}"
+                                                    Text="Only via Org" />
                                                 <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
@@ -415,49 +391,48 @@
                                     </Grid>
                                     <StackPanel Margin="5">
                                         <TextBlock
-                                    telerik:StyleManager.Theme="Material"
-                                    Style="{StaticResource CaptionTextBlockStyle}"
-                                    Text="Catelogue Description :" />
+                                            telerik:StyleManager.Theme="Material"
+                                            Style="{StaticResource CaptionTextBlockStyle}"
+                                            Text="Catelogue Description :" />
                                         <TextBox
-                                    Height="80"
-                                    telerik:StyleManager.Theme="Material"
-                                    Background="Transparent"
-                                    Text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design"
-                                    TextWrapping="Wrap" />
+                                            Height="80"
+                                            telerik:StyleManager.Theme="Material"
+                                            Background="Transparent"
+                                            Text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design"
+                                            TextWrapping="Wrap" />
                                     </StackPanel>
                                 </StackPanel>
                             </ScrollViewer>
                         </telerik:RadPanelBarItem>
-                        <telerik:RadPanelBarItem
-                        Header="Analytical Test Price Lab Details">
+                        <telerik:RadPanelBarItem Header="Analytical Test Price Lab Details">
                             <ScrollViewer VerticalScrollBarVisibility="Auto">
                                 <StackPanel>
                                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                                         <telerik:RadButton
-                                    Width="60"
-                                    Margin="10,0,10,0"
-                                    HorizontalAlignment="Right"
-                                    telerik:StyleManager.Theme="Material"
-                                    Content="Edit" />
+                                            Width="60"
+                                            Margin="10,0,10,0"
+                                            HorizontalAlignment="Right"
+                                            telerik:StyleManager.Theme="Material"
+                                            Content="Edit" />
                                         <Button
-                                    Width="60"
-                                    Margin="10,0,10,0"
-                                    HorizontalAlignment="Right"
-                                    telerik:StyleManager.Theme="Material"
-                                    Content="Save" />
+                                            Width="60"
+                                            Margin="10,0,10,0"
+                                            HorizontalAlignment="Right"
+                                            telerik:StyleManager.Theme="Material"
+                                            Content="Save" />
                                         <Button
-                                    Width="60"
-                                    Margin="10,0,10,0"
-                                    HorizontalAlignment="Right"
-                                    telerik:StyleManager.Theme="Material"
-                                    Content="Edit" />
+                                            Width="60"
+                                            Margin="10,0,10,0"
+                                            HorizontalAlignment="Right"
+                                            telerik:StyleManager.Theme="Material"
+                                            Content="Edit" />
                                     </StackPanel>
 
                                     <StackPanel Margin="5">
                                         <TextBlock
-                                    telerik:StyleManager.Theme="Material"
-                                    Style="{StaticResource CaptionTextBlockStyle}"
-                                    Text="Measurands" />
+                                            telerik:StyleManager.Theme="Material"
+                                            Style="{StaticResource CaptionTextBlockStyle}"
+                                            Text="Measurands" />
                                         <ItemsControl Margin="5" ItemsSource="{Binding DataContext.LayoutControlItems, ElementName=rootTab}">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
@@ -465,16 +440,16 @@
                                                         <BulletDecorator>
                                                             <BulletDecorator.Bullet>
                                                                 <Ellipse
-                                                            Width="10"
-                                                            Height="10"
-                                                            Margin="1,4,1,1"
-                                                            VerticalAlignment="Center"
-                                                            Fill="Blue" />
+                                                                    Width="10"
+                                                                    Height="10"
+                                                                    Margin="1,4,1,1"
+                                                                    VerticalAlignment="Center"
+                                                                    Fill="Blue" />
                                                             </BulletDecorator.Bullet>
                                                             <TextBlock
-                                                        VerticalAlignment="Center"
-                                                        Style="{StaticResource ValueTextBlockStyle}"
-                                                        Text="{Binding Name}" />
+                                                                VerticalAlignment="Center"
+                                                                Style="{StaticResource ValueTextBlockStyle}"
+                                                                Text="{Binding Name}" />
                                                         </BulletDecorator>
 
                                                     </StackPanel>
@@ -491,26 +466,52 @@
                                 </StackPanel>
                             </ScrollViewer>
                         </telerik:RadPanelBarItem>
-                        <telerik:RadPanelBarItem
-                        x:Name="Expander3"
-                        Header="Analytical Test Catalogue Details"/>
-                        <telerik:RadPanelBarItem
-                        x:Name="Expander4"
-                        Grid.Row="3"
-                        Header="Analytical Test Catalogue Details"/>
+                        <telerik:RadPanelBarItem x:Name="Expander3" Header="History" />
+                        <telerik:RadPanelBarItem Header="Operration Description" />
                     </telerik:RadPanelBar>
                 </Grid>
             </telerik:RadTabItem>
             <telerik:RadTabItem Header="Sample Types">
-                <telerik:RadTabControl x:Name="childTab"  telerik:StyleManager.Theme="Material">
+                <telerik:RadTabControl
+                    x:Name="childTab"
+                    telerik:StyleManager.Theme="Material"
+                    HeaderBackground="Gray">
                     <telerik:RadTabControl.Items>
-                        <telerik:RadTabItem x:Name="gridTabItem" MaxHeight="0" Height="0" MinHeight="0" HeaderTemplate="{StaticResource emptyHeader}" Header="Lab Services">
-                            <ContentPresenter ContentTemplate="{StaticResource dynamicTab}"/>
+                        <telerik:RadTabItem
+                            x:Name="gridTabItem"
+                            Height="0"
+                            MinHeight="0"
+                            MaxHeight="0"
+                            Header="Lab Services"
+                            HeaderTemplate="{StaticResource emptyHeader}">
+                            <telerik:RadGridView
+                                x:Name="dynamicsampleTypeGridview"
+                                telerik:StyleManager.Theme="Material"
+                                AlternateRowStyle="{StaticResource AlternativeRowStyle}"
+                                AlternationCount="2"
+                                AutoGenerateColumns="False"
+                                CanUserFreezeColumns="False"
+                                CanUserReorderColumns="False"
+                                CanUserSearch="True"
+                                ColumnWidth="*"
+                                EnableRowVirtualization="True"
+                                GroupPanelBackground="{StaticResource AppAccentBrush}"
+                                ItemsSource="{Binding DataContext.Products, ElementName=rootTab}"
+                                RowIndicatorVisibility="Collapsed"
+                                SelectionChanged="SampleTypeGridview_SelectionChanged"
+                                ShowGroupPanel="False"
+                                ShowSearchPanel="True">
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" Header="Code" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding SearchTerms}" Header="Substance Name" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Header="Description" />
+                                    <telerik:GridViewSelectColumn Header="Active" />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
                         </telerik:RadTabItem>
                     </telerik:RadTabControl.Items>
                 </telerik:RadTabControl>
-               
-
             </telerik:RadTabItem>
             <telerik:RadTabItem Header="Packages" />
             <telerik:RadTabItem Header="Item Groups" />

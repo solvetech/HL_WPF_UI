@@ -44,7 +44,7 @@ namespace HillLab_Demo
             {
                 header = $"Details {this.childTab.Items.Count}";
             }
-            this.childTab.Items.Add(new RadTabItem() { Header = header, ContentTemplate = templete, HeaderTemplate = (DataTemplate)this.Resources["TabItemHeaderTemplate"]  });
+            this.childTab.Items.Add(new RadTabItem() { Header = header, ContentTemplate = templete, HeaderTemplate = (DataTemplate)this.Resources["TabItemHeaderTemplate"] ,IsSelected=true });
             
         }
 

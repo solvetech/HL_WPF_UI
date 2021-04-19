@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HillLab_Demo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,16 @@ namespace HillLab_Demo
         {
             StyleManager.ApplicationTheme = new MaterialTheme();
             InitializeComponent();
+        }
+
+        private void radNavigationView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (radNavigationView.SelectedItem is LayoutControlItemModel layout && layout.Title == "Analytical Tests")
+            {
+                AnalyticalTest analyticalTest = new AnalyticalTest();
+                analyticalTest.DataContext = layout;
+                radGroupPanel.Items.Add(new RadDocumentPane { Header = layout.Title, Content = analyticalTest });
+            }
         }
     }
 }
