@@ -192,6 +192,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\HeightConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Data\Common\DataRequest.cs" />
     <Compile Include="Data\Common\UIDGenerator.cs" />
     <Compile Include="Data\DataContexts\AppLogDb.cs" />

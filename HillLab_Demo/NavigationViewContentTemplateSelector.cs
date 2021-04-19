@@ -21,14 +21,9 @@ namespace HillLab_Demo
 
             switch (navigationItemModel?.Title)
             {
-                case "Editors": return this.EditorsTemplate;
-                case "Layout controls": return this.LayoutControlsTemplate;
-                case "RadComboBox": return this.RadComboBoxTemplate;
-                case "RadAutoCompleteBox": return this.RadAutoCompleteBoxTemplate;
-                case "RadTileList": return this.RadTileListTemplate;
-                case "RadTileView": return this.RadTileViewTemplate;
+                case "Analytical Tests": return this.RadGridViewTemplate;
                 default:
-                    return this.RadGridViewTemplate;
+                    return this.EditorsTemplate;
             }
 
             return base.SelectTemplate(item, container);

@@ -79,7 +79,7 @@ namespace HillLab_Demo
 
                      Children = new ObservableCollection<NavigationItemModel>()
                     {
-                        new LayoutControlItemModel() { Title = "Analytical Tests",DataList=sourceDb.Orders,LayoutControlItems=GenerateCustomers() },
+                        new LayoutControlItemModel() { Title = "Analytical Tests",DataList=sourceDb.Orders,LayoutControlItems=GenerateCustomers() ,Products= sourceDb.Products},
                         new LayoutControlItemModel() { Title = "Catagories", DataList=sourceDb.Categories,LayoutControlItems=GenerateCustomers() }
                     }
 
