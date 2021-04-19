@@ -137,7 +137,6 @@
                                     Style="{StaticResource CaptionTextBlockStyle}"
                                     Text="Catelogue Description :" />
                                 <TextBox
-                                    Name="TextBox1"
                                     Height="80"
                                     telerik:StyleManager.Theme="Material"
                                     Background="Transparent"
@@ -215,29 +214,140 @@
                 </Grid>
             </telerik:RadTabItem>
             <telerik:RadTabItem Header="Sample Types">
-                <telerik:RadGridView
-                    telerik:StyleManager.Theme="Material"
-                    AlternateRowStyle="{StaticResource AlternativeRowStyle}"
-                    AlternationCount="2"
-                    AutoGenerateColumns="False"
-                    CanUserFreezeColumns="False"
-                    CanUserReorderColumns="False"
-                    CanUserSearch="True"
-                    ColumnWidth="*"
-                    EnableRowVirtualization="True"
-                    GroupPanelBackground="{StaticResource AppAccentBrush}"
-                    ItemsSource="{Binding DataContext.Products, ElementName=rootTab}"
-                    RowIndicatorVisibility="Collapsed"
-                    ShowGroupPanel="False"
-                    ShowSearchPanel="True">
-                    <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" Header="Code" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding SearchTerms}" Header="Substance Name" />
-                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Header="Description" />
-                        <telerik:GridViewSelectColumn Header="Active" />
-                    </telerik:RadGridView.Columns>
-                </telerik:RadGridView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="{Binding ElementName=sampleTypeGridview, Path=SelectedItem, Converter={StaticResource HeightConverter}}" />
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadGridView
+                        x:Name="sampleTypeGridview"
+                        telerik:StyleManager.Theme="Material"
+                        AlternateRowStyle="{StaticResource AlternativeRowStyle}"
+                        AlternationCount="2"
+                        AutoGenerateColumns="False"
+                        CanUserFreezeColumns="False"
+                        CanUserReorderColumns="False"
+                        CanUserSearch="True"
+                        ColumnWidth="*"
+                        EnableRowVirtualization="True"
+                        GroupPanelBackground="{StaticResource AppAccentBrush}"
+                        ItemsSource="{Binding DataContext.Products, ElementName=rootTab}"
+                        RowIndicatorVisibility="Collapsed"
+                        ShowGroupPanel="False"
+                        ShowSearchPanel="True">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Header="Name" />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ProductID}" Header="Code" />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding SearchTerms}" Header="Substance Name" />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Header="Description" />
+                            <telerik:GridViewSelectColumn Header="Active" />
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                    <GridSplitter
+                        Grid.Column="1"
+                        Width="5"
+                        VerticalAlignment="Stretch"
+                        ResizeBehavior="PreviousAndNext"
+                        ResizeDirection="Columns" />
+                    <Grid Grid.Column="2">
+                        <telerik:RadExpander
+                            telerik:StyleManager.Theme="Material"
+                            ClickMode="Press"
+                            ExpandDirection="Down"
+                            Header="Test on sample type Details"
+                            HeaderTemplate="{StaticResource groupHeaderTemplate}"
+                            IsExpanded="True">
+                            <StackPanel>
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <telerik:RadButton
+                                        Width="60"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        telerik:StyleManager.Theme="Material"
+                                        Content="Edit" />
+                                    <telerik:RadButton
+                                        Width="60"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        telerik:StyleManager.Theme="Material"
+                                        Content="Save" />
+                                    <telerik:RadButton
+                                        Width="60"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        telerik:StyleManager.Theme="Material"
+                                        Content="Cancel" />
+                                </StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="5"
+                                        Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Name" />
+                                            <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Code" />
+                                            <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Mr2JF" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Type" />
+                                            <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Analytical Test" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Permission" />
+                                            <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Pesticide Suite" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Commercial rollup" />
+                                            <TextBlock Style="{StaticResource ValueTextBlockStyle}" Text="Food" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                telerik:StyleManager.Theme="Material"
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                Text="Only via Org" />
+                                            <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Discount" />
+                                            <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" Text="Active" />
+                                            <CheckBox VerticalAlignment="Center" telerik:StyleManager.Theme="Material" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                                <StackPanel Margin="5">
+                                    <TextBlock
+                                        telerik:StyleManager.Theme="Material"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Text="Catelogue Description :" />
+                                    <TextBox
+                                        Height="80"
+                                        telerik:StyleManager.Theme="Material"
+                                        Background="Transparent"
+                                        Text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design"
+                                        TextWrapping="Wrap" />
+                                </StackPanel>
+                            </StackPanel>
+                        </telerik:RadExpander>
+
+                    </Grid>
+                </Grid>
 
             </telerik:RadTabItem>
             <telerik:RadTabItem Header="Packages" />

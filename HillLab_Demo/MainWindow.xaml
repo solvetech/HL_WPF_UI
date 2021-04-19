@@ -82,7 +82,6 @@
                     <Setter Property="FontSize" Value="13" />
                 </Style>
             </telerik:RadNavigationView.ItemContainerStyle>
-
             <telerik:RadNavigationView.Content>
                 <ContentControl Content="{Binding SelectedItem, ElementName=radNavigationView}" ContentTemplateSelector="{StaticResource NavigationViewContentTemplateSelector}" />
             </telerik:RadNavigationView.Content>
